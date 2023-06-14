@@ -39,7 +39,7 @@ Detailed documentation, including API endpoints, request/response examples, and 
 Mood Sync is built using the following technologies:
 
 <div align="center">
-  
+
 ![Django](https://via.placeholder.com/120x40/5C4B88/FFFFFF?text=Django)
 ![Django REST Framework](https://via.placeholder.com/180x40/BD1B7A/FFFFFF?text=Django+REST+Framework)
 ![PostgreSQL](https://via.placeholder.com/160x40/336791/FFFFFF?text=PostgreSQL)
@@ -63,5 +63,5 @@ This project is licensed under the [MIT License](LICENSE).
 ---
 
 <div align="center">
-  Made with ❤️ by Your Team
+  Made with ❤️ by Our Team
 </div>

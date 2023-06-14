@@ -77,5 +77,5 @@ For more detailed instructions and information, please refer to the [Documentati
 ---
 
 <div align="center">
-  Made with ❤️ by Your Team
+  Made with ❤️ by Our Team
 </div>
