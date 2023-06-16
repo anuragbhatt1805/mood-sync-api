@@ -1,4 +1,5 @@
 from django.db import models
+from django.conf import settings
 from django.contrib.auth.models import (
     AbstractBaseUser,
     BaseUserManager,
@@ -51,5 +52,24 @@ class UserModel(AbstractBaseUser, PermissionsMixin):
 
     objects = UserManager()
 
-    def __str__(self):
-        return self.email
+
+class DiaryModelManager(models.Manager):
+    def create(self, **kwargs):
+        date = kwargs.get('date')
+        existing_entry = self.get_queryset().filter(date=date).first()
+        if existing_entry:
+            existing_entry.description = kwargs.get('description')
+            existing_entry.save()
+            return existing_entry
+        else:
+            return super().create(**kwargs)
+
+class DiaryModel(models.Model):
+    author = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE
+    )
+    date = models.DateField(auto_now_add=True, unique=True)
+    description = models.TextField(max_length=1000)
+
+    objects = DiaryModelManager()

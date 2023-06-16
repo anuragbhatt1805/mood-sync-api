@@ -8,9 +8,10 @@ from . import models
 class UserAdmin(BaseUserAdmin):
     """Django admin for custom user model"""
     ordering = ['name']
+    search_fields = ['email', 'username', 'name', 'gender', 'country', 'city', 'state', 'pincode']
     list_display = ['email', 'username', 'name', 'dob', 'gender', 'country', 'state', 'city', 'pincode','date_joined']
     fieldsets = (
-        (None, {'fields': ('email', 'username', 'name', 'password')}),
+        (None, {'fields': ('email', 'username', 'name', 'gender', 'dob', 'country', 'state', 'city', 'pincode','password')}),
         (
             _('Permissions'), {
                 'fields': (
@@ -25,6 +26,7 @@ class UserAdmin(BaseUserAdmin):
             _('Important dates'), {
                 'fields': (
                     'date_joined',
+                    'last_login',
                 )
             }
         ),
@@ -46,7 +48,8 @@ class UserAdmin(BaseUserAdmin):
                        'password2',
                        'is_active',
                        'is_staff',
-                       'is_superuser'
+                       'is_superuser',
+                       'is_premium_user'
                        ),
         }),
     )
