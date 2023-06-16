@@ -1,6 +1,6 @@
 <div align="center">
   <h1>Mood Sync</h1>
-  <img src="https://github.com/anuragbhatt1805/mood-sync-api/assets/72703824/64286e05-a7a0-40fb-83b9-63e000bd4f2f" alt="Mood Sync Logo">
+  <img src="https://github.com/anuragbhatt1805/mood-sync-api/assets/72703824/b844b0b8-03c8-43df-98b2-ac5883496848" alt="Mood Sync Logo">
   
 </div>
 
