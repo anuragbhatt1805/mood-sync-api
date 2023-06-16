@@ -1,6 +1,7 @@
 <div align="center">
   <h1>Mood Sync</h1>
-  <img src="mood-sync-logo.png" alt="Mood Sync Logo">
+  <img src="logo.png" alt="Mood Sync Logo">
+  
 </div>
 
 ---
