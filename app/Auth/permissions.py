@@ -1,5 +1,4 @@
 from rest_framework import permissions
-from datetime import datetime
 
 class UpdateOwnProfile(permissions.BasePermission):
     """Class which allows user to update edit/update their own profile"""

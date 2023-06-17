@@ -27,6 +27,8 @@ class DiaryModelViewSet(viewsets.ModelViewSet):
     queryset = models.DiaryModel.objects.all()
     serializer_class = serializer.DiaryModelSerializer
     permission_classes = (permissions.UpdateOwnDiary, IsAuthenticated)
+    filter_backends = (filters.SearchFilter, )
+    search_fields = ('date', )
 
     def perform_create(self, serializer):
         """Sets the user profile to logged in user"""
