@@ -79,4 +79,46 @@ class Template(models.Model):
         blank=True,
         null=True,
     )
+    q11 = models.ForeignKey(
+        Questions, related_name='question11',
+        on_delete=models.SET_NULL,
+        blank=True,
+        null=True,
+    )
+    q12 = models.ForeignKey(
+        Questions, related_name='question12',
+        on_delete=models.SET_NULL,
+        blank=True,
+        null=True,
+    )
+    q13 = models.ForeignKey(
+        Questions, related_name='question13',
+        on_delete=models.SET_NULL,
+        blank=True,
+        null=True,
+    )
+    q14 = models.ForeignKey(
+        Questions, related_name='question14',
+        on_delete=models.SET_NULL,
+        blank=True,
+        null=True,
+    )
+    q15 = models.ForeignKey(
+        Questions, related_name='question15',
+        on_delete=models.SET_NULL,
+        blank=True,
+        null=True,
+    )
+    q16 = models.ForeignKey(
+        Questions, related_name='question16',
+        on_delete=models.SET_NULL,
+        blank=True,
+        null=True,
+    )
+    q17 = models.ForeignKey(
+        Questions, related_name='question17',
+        on_delete=models.SET_NULL,
+        blank=True,
+        null=True,
+    )
     objects = models.Manager()

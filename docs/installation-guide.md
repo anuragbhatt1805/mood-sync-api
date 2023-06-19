@@ -55,10 +55,17 @@ cd mood-sync-api
 To start the Mood Sync project, run the following command:
 
 ```bash
-docker-compose up
+docker-compose build
 ```
 
 This command will build the necessary Docker containers and start the project.
+
+
+```bash
+docker-compose up
+```
+
+This command will start the docker-compose container.
 
 Alternatively, you can use the following command if you need to run additional Django management commands:
 
