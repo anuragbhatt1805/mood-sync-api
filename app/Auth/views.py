@@ -34,7 +34,6 @@ class DiaryModelViewSet(viewsets.ModelViewSet):
         """Sets the user profile to logged in user"""
         serializer.save(author = self.request.user)
 
-
     def get_queryset(self):
         """Return the queryset filtered by the author ID"""
         return models.DiaryModel.objects.filter(author = self.request.user)

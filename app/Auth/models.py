@@ -1,5 +1,6 @@
 from django.db import models
 from django.conf import settings
+import datetime
 from django.contrib.auth.models import (
     AbstractBaseUser,
     BaseUserManager,
@@ -55,8 +56,11 @@ class UserModel(AbstractBaseUser, PermissionsMixin):
 
 class DiaryModelManager(models.Manager):
     def create(self, **kwargs):
-        date = kwargs.get('date')
-        existing_entry = self.get_queryset().filter(date=date).first()
+        date = datetime.date.today()
+        print(kwargs.get('date'))
+        author = kwargs.get('author')
+        existing_entry = self.get_queryset().filter(date=date, author=author).first()
+        print(existing_entry)
         if existing_entry:
             existing_entry.description = kwargs.get('description')
             existing_entry.save()
@@ -69,7 +73,7 @@ class DiaryModel(models.Model):
         settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE
     )
-    date = models.DateField(auto_now_add=True, unique=True)
+    date = models.DateField(auto_now_add=True)
     description = models.TextField(max_length=1000)
 
     objects = DiaryModelManager()
