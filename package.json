@@ -1,0 +1,17 @@
+{
+    "name": "mood-sync-api",
+    "version": "1.0.0",
+    "description": "A web API project built with Django REST framework, PostgreSQL, MongoDB, and Docker",
+    "main": "app/manage.py",
+    "scripts": {
+        "init": "python manage.py makemigrations && python manage.py migrate",
+        "start": "python manage.py runserver"
+    },
+    "author": "anuragbhatt1805@gmail.com",
+    "license": "MIT",
+    "dependencies": {
+        "django": "^3.0.5",
+        "djangorestframework": "^3.11.0",
+        "psycopg2": "^2.8.5"
+    }
+}
