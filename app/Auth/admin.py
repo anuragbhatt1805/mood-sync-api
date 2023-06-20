@@ -1,6 +1,5 @@
 from django.contrib import admin # noqa
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin # noqa
-from django.utils.translation import gettext_lazy as _ # noqa
 from . import models
 
 
@@ -13,7 +12,7 @@ class UserAdmin(BaseUserAdmin):
     fieldsets = (
         (None, {'fields': ('email', 'username', 'name', 'gender', 'dob', 'country', 'state', 'city', 'pincode','password')}),
         (
-            _('Permissions'), {
+            ('Permissions'), {
                 'fields': (
                     'is_active',
                     'is_staff',
@@ -23,7 +22,7 @@ class UserAdmin(BaseUserAdmin):
             }
         ),
         (
-            _('Important dates'), {
+            ('Important dates'), {
                 'fields': (
                     'date_joined',
                     'last_login',
@@ -56,3 +55,4 @@ class UserAdmin(BaseUserAdmin):
 
 
 admin.site.register(models.UserModel, UserAdmin)
+admin.site.register(models.DiaryModel)

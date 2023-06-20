@@ -6,13 +6,17 @@ class AddQuestion(permissions.BasePermission):
 
     def has_permission(self, request, view):
         """Check if user has permission to perform the action"""
-        if request.user.is_superuser:
+        if request.user.is_superuser and (request.method in permissions.SAFE_METHODS):
+            return True
+        if request.user.is_active and request.method == 'GET':
             return True
         raise PermissionDenied("You are not allowed to perform this action.")
 
     def has_object_permission(self, request, view, obj):
         """Check if user is trying to edit his own profile"""
-        if request.user.is_premium_user and request.method == "GET":
+        if request.user.is_superuser and (request.method in permissions.SAFE_METHODS):
+            return True
+        if request.user.is_active and request.method == 'GET':
             return True
         raise PermissionDenied("You are not allowed for this request")
 

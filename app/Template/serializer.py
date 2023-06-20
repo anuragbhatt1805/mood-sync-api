@@ -1,10 +1,12 @@
 from rest_framework import serializers
 from . import models
 
-class DiaryModelSerializer(serializers.ModelSerializer):
+
+class QuestionModelSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Questions
-        fields = ('id', 'question_text', 'question_type')
+        fields = ('id', 'question_text')
+        
 
 class TemplateSerializer(serializers.ModelSerializer):
     class Meta:
@@ -15,3 +17,21 @@ class TemplateSerializer(serializers.ModelSerializer):
             'created_at': { 'read_only': True},
             'updated_at': { 'read_only': True}
         }
+
+    def to_representation(self, instance):
+        representation = super().to_representation(instance)
+
+        # Get the question names and update the representation
+        question_ids = [representation.get(f'q{i}') for i in range(1, 18)]
+        questions = models.Questions.objects.filter(id__in=question_ids)
+        question_names = {question.id: question.question_text for question in questions}
+
+        for i in range(1, 18):
+            question_id = representation.get(f'q{i}')
+            if question_id in question_names:
+                representation[f'q{i}'] = {
+                    'id': question_id,
+                    "name": question_names[question_id]
+                    }
+
+        return representation

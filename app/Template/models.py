@@ -1,12 +1,13 @@
 from django.db import models
+from django.contrib.auth.models import PermissionsMixin
 from django.conf import settings
 
 # Create your models here.
 
 class Questions(models.Model):
     question_text = models.CharField(max_length=255)
-    question_type = models.CharField(max_length=50)
     objects = models.Manager()
+
 
 class Template(models.Model):
     """A template class that can be used to render templates"""
@@ -18,7 +19,7 @@ class Template(models.Model):
     )
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    is_active = models.BooleanField(default=False)
+    is_active = models.BooleanField(default=True)
     q1 = models.ForeignKey(
         Questions, related_name='question1',
         on_delete=models.SET_NULL,
