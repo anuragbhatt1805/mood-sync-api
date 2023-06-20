@@ -43,6 +43,17 @@ class SlambookAnswerViewSet(viewsets.ModelViewSet):
         serializer.save(filled_by=self.request.user, slambook=slambook)
 
 
+class ViewUserSlambookViewSet(viewsets.ModelViewSet):
+    queryset = models.SlambookTemplate.objects.all()
+    serializer_class = serializer.SlamBookModelSerializer
+    permission_classes = (permissions.Slambook_Permission, IsAuthenticated, )
+    authentication_classes = (TokenAuthentication, )
+
+    def get_queryset(self):
+        user_id = self.kwargs['user_id']
+        return models.SlambookTemplate.objects.filter(created_by=user_id)
+
+
 
 class SlambookViewSet(viewsets.ModelViewSet):
     queryset = models.SlambookTemplate.objects.all()
@@ -57,5 +68,10 @@ class SlambookViewSet(viewsets.ModelViewSet):
         serializer.save(created_by = self.request.user)
 
     def get_queryset(self):
-        """Return objects for the current authenticated user only"""
-        return self.queryset.filter(created_by=self.request.user)
+        queryset = self.queryset
+        slambook_id = self.kwargs.get('pk')
+        if slambook_id is not None:
+            queryset = queryset.filter(id=slambook_id)
+        else:
+            queryset = queryset.filter(created_by=self.request.user)
+        return queryset
