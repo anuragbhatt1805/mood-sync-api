@@ -7,7 +7,7 @@
 
 ## 🌟 About the Project
 
-Mood Sync is a web API project built with Django, Django REST framework, PostgreSQL, MongoDB, and Docker. It provides a platform for creating and sharing slambooks, writing personal diary entries, managing templates, and connecting with friends. The project aims to bring people together and sync their moods through shared experiences.
+Mood Sync is a web API project built with Django, Django REST framework, PostgreSQL, and Docker. It provides a platform for creating and sharing slambooks, writing personal diary entries, managing templates, and connecting with friends. The project aims to bring people together and sync their moods through shared experiences.
 
 ---
 
@@ -43,7 +43,6 @@ Mood Sync is built using the following technologies:
 ![Django](https://via.placeholder.com/120x40/5C4B88/FFFFFF?text=Django)
 ![Django REST Framework](https://via.placeholder.com/180x40/BD1B7A/FFFFFF?text=Django+REST+Framework)
 ![PostgreSQL](https://via.placeholder.com/160x40/336791/FFFFFF?text=PostgreSQL)
-![MongoDB](https://via.placeholder.com/120x40/4DB33D/FFFFFF?text=MongoDB)
 ![Docker](https://via.placeholder.com/100x40/0DB7ED/FFFFFF?text=Docker)
 
 </div>
